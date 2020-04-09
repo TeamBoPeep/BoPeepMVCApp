@@ -34,3 +34,6 @@ Microsoft Visual Studio Community 2019
 - Azure
 
 ---
+
+## Change Log
+1.0: *Repository and README is initalized* - April 8 2020  
