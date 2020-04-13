@@ -4,7 +4,7 @@
 
 ### We are deployed on Azure!
 
-[project url here]
+[Bored To Death](https://bopeepmvc.azurewebsites.net/)
 
 ---
 
@@ -35,5 +35,9 @@ Microsoft Visual Studio Community 2019
 
 ---
 
-## Change Log
-1.0: *Repository and README is initalized* - April 8 2020  
+## **Change Log**  
+> updates  
+1.0: *Site is Deployed to Azure, with API calls and Data Persistence* - April 13, 2020
+![v1.0 Index](assets/Indexv1.0.PNG)
+![v1.0 Results](assets/Resultsv1.0.PNG)  
+0.1: *Repository and README is initalized* - April 8 2020  

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/styles.css" />
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/089-skull.svg" alt="Vincent Le Moign / CC BY (https://creativecommons.org/licenses/by/4.0)" width="50" />
+        <h1>Bored To Death</h1>
+        <p class="subtitle">The Boredom Killer</p>
+
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Add Activity</li>
+                <li>About Us</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <p><em>BoPeep Development &copy; 2020</em></p>
+    </footer>
+</body>
+</html>
