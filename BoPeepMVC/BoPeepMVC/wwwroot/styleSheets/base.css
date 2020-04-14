@@ -8,7 +8,7 @@ body {
     background-color: #EBF3FA
 }
  body div:first-child {
-     background-position: center;
+    background-position: center;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/71/089-skull.svg);
     height: 100vh;
     width: 100%;
