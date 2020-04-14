@@ -29,16 +29,38 @@ namespace BoPeepMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string keyword)
+        public IActionResult Index(string keyword, string[] tags)
         {
-            return RedirectToAction("Results", new { keyword });
+            return RedirectToAction("Results", new { keyword, tags });
         }
 
-        public async Task<IActionResult> Results(string keyword)
+        public async Task<IActionResult> Results(string keyword, string[] tags)
         {
-            List<Activity> response = await _activity.GetActivities();
+            var response = await _activity.GetActivitiesByKeyword(keyword);
             return View("Results", response);
         }
-        
+
+        [HttpGet]
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult New(string title, string description, string location, string externallink, string imageurl)
+        {
+            Activity newActivity = new Activity()
+            {
+                Title = title,
+                Description = description,
+                Location = location,
+                ExternalLink = externallink,
+                ImageURL = imageurl
+            };
+
+            _activity.CreateActivity(newActivity);
+
+            return View("Results", new List<Activity> { newActivity });
+        }
     }
 }
