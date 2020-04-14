@@ -29,12 +29,12 @@ namespace BoPeepMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string keyword)
+        public IActionResult Index(string keyword, string[] tags)
         {
-            return RedirectToAction("Results", new { keyword });
+            return RedirectToAction("Results", new { keyword, tags });
         }
 
-        public async Task<IActionResult> Results(string keyword)
+        public async Task<IActionResult> Results(string keyword, string[] tags)
         {
             var response = await _activity.GetActivitiesByKeyword(keyword);
             return View("Results", response);
