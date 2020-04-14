@@ -7,6 +7,6 @@ namespace BoPeepMVC.Models.Interfaces
 {
     public interface IActivityManager
     {
-        public Task<string> GetHello();
+        public Task<List<Activity>> GetActivities();
     }
 }
