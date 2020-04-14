@@ -36,7 +36,7 @@ namespace BoPeepMVC.Controllers
 
         public async Task<IActionResult> Results(string keyword)
         {
-            List<Activity> response = await _activity.GetActivities();
+            var response = await _activity.GetActivitiesByKeyword(keyword);
             return View("Results", response);
         }
         

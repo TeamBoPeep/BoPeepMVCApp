@@ -34,7 +34,7 @@ namespace BoPeepMVC.Models
 
         //whether inside or outside
         [JsonPropertyName("location")]
-        public int Location { get; set; }
+        public string Location { get; set; }
 
         //link to external article/source/purchase page
         [JsonPropertyName("externallink")]

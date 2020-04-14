@@ -7,6 +7,6 @@ namespace BoPeepMVC.Models.Interfaces
 {
     public interface IActivityManager
     {
-        public Task<List<Activity>> GetActivities();
+        public Task<IEnumerable<Activity>> GetActivitiesByKeyword(string keyword);
     }
 }
