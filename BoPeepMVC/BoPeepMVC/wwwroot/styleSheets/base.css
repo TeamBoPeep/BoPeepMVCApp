@@ -5,5 +5,30 @@
     font-size: 30px;
 }
 body {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/71/089-skull.svg);
+    height: 100vh;
+    width: 100%;
     background-color: #EBF3FA
+}
+header {
+    font-family: 'Permanent Marker', cursive;
+}
+
+ header h1 {
+     font-size: 100px;
+ }
+
+header p {
+    font-size: 65px;
+    color: #870A30;
+}
+
+header nav li {
+    font-size: 40px;
+    display: inline;
+    padding: 0px 50px;
+}
+footer {
+    font-family: 'Roboto', sans-serif;
+    color: #909493;
 }
