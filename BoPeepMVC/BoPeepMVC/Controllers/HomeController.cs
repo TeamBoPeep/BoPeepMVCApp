@@ -12,7 +12,7 @@ namespace BoPeepMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private IActivityManager _activity;
+        private readonly IActivityManager _activity;
         public HomeController(IActivityManager activity)
         {
             _activity = activity;
@@ -29,20 +29,15 @@ namespace BoPeepMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(string keyword)
+        public IActionResult Index(string keyword)
         {
-            string response = await _activity.GetHello();
-            return RedirectToAction("Results", new { response, keyword });
+            return RedirectToAction("Results", new { keyword });
         }
 
-        public IActionResult Results(string response, string keyword)
+        public async Task<IActionResult> Results(string keyword)
         {
-            Activity activity = new Activity
-            {
-                Keyword = keyword,
-                ApiResponse = response
-            };
-            return View("Results", activity);
+            List<Activity> response = await _activity.GetActivities();
+            return View("Results", response);
         }
         
     }

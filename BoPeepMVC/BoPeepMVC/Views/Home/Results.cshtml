@@ -1,4 +1,4 @@
-﻿@model BoPeepMVC.Models.Activity
+﻿@model IEnumerable<BoPeepMVC.Models.Activity>
 
 @{
     Layout = "_Layout";
@@ -6,9 +6,20 @@
 
 <!DOCTYPE html>
 <head>
-    <title>Bored to Death - Search "@Model.Keyword"</title>
+    <title>Bored to Death - Search Results(@Model.Count() Found)</title>
 </head>
 <body>
-    <p>You searched for @Model.Keyword</p>
-    <p>The api responded with: @Model.ApiResponse</p>
+    <ul>
+        @foreach (var activity in Model)
+        {
+        <li>
+            <img src="https://via.placeholder.com/150" alt="@activity.Title" />
+            <h2>@activity.Title</h2>
+            <p>@activity.Rating</p>
+            <p>@activity.Location</p>
+            <p>@activity.Description</p>
+            <a href="@activity.ExternalLink">CLICK HERE</a>
+        </li>
+        }
+    </ul>
 </body>

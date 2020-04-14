@@ -18,15 +18,15 @@ namespace BoPeepMVC.Models.Services
         /// Returns "Hello World" from deployed API
         /// </summary>
         /// <returns>string of response</returns>
-        public async Task<string> GetHello()
+        public async Task<List<Activity>> GetActivities()
         {
-            string route = "hello";
+            string route = "activities";
 
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var streamTask = await client.GetStreamAsync($"{baseURL}/{route}");
-            var response = await JsonSerializer.DeserializeAsync<string>(streamTask);
+            var response = await JsonSerializer.DeserializeAsync<List<Activity>>(streamTask);
 
             return response;
         }
