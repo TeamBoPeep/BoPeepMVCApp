@@ -14,8 +14,8 @@ namespace BoPeepMVC.Models
         //public string ApiResponse { get; set; }
 
         //db id of activity
-        [JsonPropertyName("id")]
-        public int ID { get; set; }
+        //[JsonPropertyName("id")]
+        //public int ID { get; set; }
 
         [JsonPropertyName("title")]
         public string Title { get; set; }

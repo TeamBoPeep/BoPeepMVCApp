@@ -39,6 +39,28 @@ namespace BoPeepMVC.Controllers
             var response = await _activity.GetActivitiesByKeyword(keyword);
             return View("Results", response);
         }
-        
+
+        [HttpGet]
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult New(string title, string description, string location, string externallink, string imageurl)
+        {
+            Activity newActivity = new Activity()
+            {
+                Title = title,
+                Description = description,
+                Location = location,
+                ExternalLink = externallink,
+                ImageURL = imageurl
+            };
+
+            _activity.CreateActivity(newActivity);
+
+            return View("Results", new List<Activity> { newActivity });
+        }
     }
 }
