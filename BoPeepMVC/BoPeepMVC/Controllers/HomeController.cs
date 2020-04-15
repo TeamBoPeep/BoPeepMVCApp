@@ -13,9 +13,12 @@ namespace BoPeepMVC.Controllers
     public class HomeController : Controller
     {
         private readonly IActivityManager _activity;
-        public HomeController(IActivityManager activity)
+        private readonly ITagManager _tag;
+
+        public HomeController(IActivityManager activity, ITagManager tag)
         {
             _activity = activity;
+            _tag = tag;
         }
 
         /// <summary>
@@ -23,9 +26,10 @@ namespace BoPeepMVC.Controllers
         /// </summary>
         /// <returns>Opens the Home/Index View</returns>
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var tags = await _tag.GetTags();
+            return View("Index", tags);
         }
 
         [HttpPost]

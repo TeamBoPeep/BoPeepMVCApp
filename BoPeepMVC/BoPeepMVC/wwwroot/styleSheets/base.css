@@ -10,8 +10,8 @@ body {
  body div:first-child {
     background-position: center;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/71/089-skull.svg);
-    height: 100vh;
-    width: 100%;
+    background-attachment: fixed;
+    height: 100%;
     opacity: 0.2;
     z-index: -1;
     position: absolute;

@@ -1,6 +1,50 @@
 form {
     padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgba(45, 46, 46, 0.47);
+    border-radius: 20px;
+    margin-top: 20px;
 }
+label {
+    margin: 1% 5%;
+    width: 20vh;
+    font-size: 2.5vh;
+    text-wrap: normal;
+}
+
+    label.column, button {
+        padding: .5em 1em;
+        color: #EBF3FA;
+        background-color: #48232e;
+        border-radius: .5em;
+        cursor: pointer;
+    }
+
+        label.column:hover {
+            background-color: #EBF3FA;
+            color: #48232e;
+        }
+
+        :checked + label.column {
+            background-color: #505b64;
+            color: #EBF3FA;
+        }
+
+[type=checkbox]  {
+    display: none;
+    opacity: 0;
+}
+
+[name=Keyword] {
+    margin: 2%;
+    width: 80%;
+}
+
+ 
 /*input {
     position: absolute;
     left: -9999px;
@@ -8,7 +52,7 @@ form {
 input:checked label::after {
     color: red;
 }*/
-.column {
+/*.column {
     float: left;
     width: 50%;
     padding: 20px;
@@ -18,7 +62,7 @@ input:checked label::after {
     content: "";
     display: table;
     clear: both;
-}
+}*/
 
 div {
     width: 100%;
