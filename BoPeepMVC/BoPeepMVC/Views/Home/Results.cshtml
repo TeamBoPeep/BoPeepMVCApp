@@ -21,6 +21,10 @@
             <p>@activity.Location</p>
             <p>@activity.Description</p>
             <a href="@activity.ExternalLink">CLICK HERE</a>
+            <form method="post">
+                <input value="@activity.ID" name="id" hidden/>
+                <button action="submit">Review this Activity</button>
+            </form>
         </li>
         }
     </ul>

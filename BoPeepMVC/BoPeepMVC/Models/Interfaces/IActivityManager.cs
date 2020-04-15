@@ -10,6 +10,10 @@ namespace BoPeepMVC.Models.Interfaces
     {
         public Task<IEnumerable<Activity>> GetActivitiesByKeyword(string keyword, string[] tags);
 
+        public Task<Activity> GetActivitiesByID(int id);
+
         public Task<HttpResponseMessage> CreateActivity(Activity activity);
+
+        public Task<HttpResponseMessage> UpdateActivity(Activity activity);
     }
 }

@@ -49,6 +49,19 @@ namespace BoPeepMVC.Models.Services
             return response;
         }
 
+        public async Task<Activity> GetActivitiesByID(int id)
+        {
+            string route = $"activities/{id}";
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var streamTask = await client.GetStreamAsync($"{baseURL}/{route}");
+            var activity = await System.Text.Json.JsonSerializer.DeserializeAsync<Activity>(streamTask);
+
+            return activity;
+        }
+
         public async Task<HttpResponseMessage> CreateActivity(Activity activity)
         {
             string route = "activities";
@@ -58,6 +71,18 @@ namespace BoPeepMVC.Models.Services
 
             var serializedActivity = JsonConvert.SerializeObject(activity);
             var response = await client.PostAsync($"{baseURL}/{route}", new StringContent(serializedActivity, Encoding.UTF8, "application/json"));
+            return response;
+        }
+
+        public async Task<HttpResponseMessage> UpdateActivity(Activity activity)
+        {
+            string route = $"activities/{activity.ID}";
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var serializedActivity = JsonConvert.SerializeObject(activity);
+            var response = await client.PutAsync($"{baseURL}/{route}", new StringContent(serializedActivity, Encoding.UTF8, "application/json"));
             return response;
         }
     }
