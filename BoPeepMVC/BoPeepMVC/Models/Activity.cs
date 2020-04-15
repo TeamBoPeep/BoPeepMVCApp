@@ -12,6 +12,8 @@ namespace BoPeepMVC.Models
         //legacy code for testing routes
         //public string Keyword { get; set; }
         //public string ApiResponse { get; set; }
+        [JsonPropertyName("id")]
+        public int ID { get; set; }
 
         [JsonPropertyName("title")]
         public string Title { get; set; }
@@ -27,6 +29,10 @@ namespace BoPeepMVC.Models
         //aggregate rating
         [JsonPropertyName("rating")]
         public double Rating { get; set; }
+
+        //List of reviews
+        [JsonPropertyName("reviews")]
+        public List<Review> Reviews { get; set; }
 
         //whether inside or outside
         [JsonPropertyName("location")]

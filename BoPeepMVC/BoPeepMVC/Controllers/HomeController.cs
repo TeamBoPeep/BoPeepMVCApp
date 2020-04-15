@@ -55,7 +55,7 @@ namespace BoPeepMVC.Controllers
 
         [HttpPost]
         [Route("/New", Name = "New")]
-        public IActionResult New(string title, string description, string location, List<string> tagNames, string externallink, string imageurl)
+        public async Task<IActionResult> New(string title, string description, string location, List<string> tagNames, string externallink, string imageurl)
         {
             List<Tag> tags = new List<Tag>();
             foreach(string name in tagNames)
@@ -76,10 +76,43 @@ namespace BoPeepMVC.Controllers
                 ImageURL = imageurl
             };
 
-            _activity.CreateActivity(newActivity);
+            await _activity.CreateActivity(newActivity);
 
             return View("Results", new List<Activity> { newActivity });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Results(int id)
+        {
+            var activity = await _activity.GetActivitiesByID(id);
+            return RedirectToAction("Review", activity);
+        }
+
+
+        [HttpGet]
+        [Route("/review", Name ="Review")]
+        public IActionResult Review(Activity activity)
+        {
+            return View(activity);
+        }
+
+        [HttpPost]
+        [Route("/review", Name = "Review")]
+        public async Task<IActionResult> Review(int id, string username, string review)
+        {
+            Review newReview = new Review
+            {
+                Name = username,
+                Description = review
+            };
+            var reviewedActivity = await _activity.GetActivitiesByID(id);
+            reviewedActivity.Reviews.Add(newReview);
+
+            await _activity.UpdateActivity(reviewedActivity);
+
+            return View("Results", new List<Activity> { reviewedActivity });
+        }
+
         [HttpGet]
         [Route("/AboutUs", Name = "AboutUs")]
         public IActionResult AboutUs()
