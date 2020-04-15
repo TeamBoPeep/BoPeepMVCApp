@@ -21,6 +21,7 @@ namespace BoPeepMVC
             services.AddMvc();
 
             services.AddTransient<IActivityManager, ActivityService>();
+            services.AddTransient<ITagManager, TagService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
