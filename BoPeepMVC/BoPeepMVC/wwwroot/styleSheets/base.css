@@ -2,7 +2,7 @@
     text-align: center;
     font-family: 'Roboto', sans-serif;
     color: #666664;
-    font-size: 30px;
+    font-size: 20px;
 }
 body {
     background-color: #EBF3FA
@@ -31,11 +31,21 @@ header p {
 }
 
 header nav li {
-    font-size: 40px;
+    font-size: 25px;
     display: inline;
-    padding: 0px 50px;
+    padding: 0px 50px px;
 }
 footer {
     font-family: 'Roboto', sans-serif;
     color: #909493;
+}
+
+h3 {
+    padding-top:30px;
+}
+
+p{
+    max-width:50%;
+    text-align:center;
+    padding: 
 }
