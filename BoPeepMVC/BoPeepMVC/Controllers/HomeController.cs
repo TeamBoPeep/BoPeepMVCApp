@@ -80,5 +80,11 @@ namespace BoPeepMVC.Controllers
 
             return View("Results", new List<Activity> { newActivity });
         }
+        [HttpGet]
+        [Route("/AboutUs", Name = "AboutUs")]
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
     }
 }
