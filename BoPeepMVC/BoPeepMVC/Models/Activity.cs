@@ -32,6 +32,10 @@ namespace BoPeepMVC.Models
         [JsonPropertyName("location")]
         public string Location { get; set; }
 
+        //Related tags and categories
+        [JsonPropertyName("tagDTO")]
+        public List<Tag> Tags { get; set; }
+
         //link to external article/source/purchase page
         [JsonPropertyName("externalLink")]
         public string ExternalLink { get; set; }
