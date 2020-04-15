@@ -58,12 +58,11 @@ namespace BoPeepMVC.Controllers
         public async Task<IActionResult> New(string title, string description, string location, List<string> tagNames, string externallink, string imageurl)
         {
             List<Tag> tags = new List<Tag>();
-            foreach(string name in tagNames)
+            IEnumerable<Tag> tagtag = await _tag.GetTags();
+            IEnumerable<Tag> matchingtags = tagtag.Where(t => tagNames.Any(n => n == t.Name));
+            foreach (Tag tag in matchingtags)
             {
-                tags.Add(new Tag
-                {
-                    Name = name
-                });
+                tags.Add(tag);
             }
 
             Activity newActivity = new Activity()
