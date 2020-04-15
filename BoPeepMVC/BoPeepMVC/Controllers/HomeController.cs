@@ -53,6 +53,7 @@ namespace BoPeepMVC.Controllers
         }
 
         [HttpPost]
+        [Route("/New", Name = "New")]
         public IActionResult New(string title, string description, string location, string externallink, string imageurl)
         {
             Activity newActivity = new Activity()

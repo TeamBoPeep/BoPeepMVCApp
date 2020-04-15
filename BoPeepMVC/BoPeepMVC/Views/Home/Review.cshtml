@@ -1,0 +1,20 @@
+﻿@model BoPeepMVC.Models.Activity
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<head>
+    <title>Bored To Death: The Boredom Killer</title>
+</head>
+<body>
+    <img src="@Model.ImageURL" alt="@Model.Title" />
+    <h2>Review @Model.Title:</h2>
+    <form method="post">
+        <label for="username">Your Name</label>
+        <input type="text" name="username" placeholder="Enter your name..."/>
+        <label for="review">Review</label>
+        <textarea name="review" placeholder="Write your review" />
+        <button type="submit">Search</button>
+    </form>
+
+</body>
