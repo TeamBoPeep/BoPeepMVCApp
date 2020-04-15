@@ -26,6 +26,7 @@ namespace BoPeepMVC.Controllers
         /// </summary>
         /// <returns>Opens the Home/Index View</returns>
         [HttpGet]
+        [Route("/", Name = "Home")]
         public async Task<IActionResult> Index()
         {
             var tags = await _tag.GetTags();
@@ -40,11 +41,12 @@ namespace BoPeepMVC.Controllers
 
         public async Task<IActionResult> Results(string keyword, string[] tags)
         {
-            var response = await _activity.GetActivitiesByKeyword(keyword);
+            var response = await _activity.GetActivitiesByKeyword(keyword, tags);
             return View("Results", response);
         }
 
         [HttpGet]
+        [Route("/New", Name = "New")]
         public IActionResult New()
         {
             return View();
