@@ -17,10 +17,11 @@ label {
 }
 
     label.column, button {
-        padding: .5em 1em;
+        padding: .4em 0.9em;
         color: #EBF3FA;
-        background-color: #48232e;
+        background-color: #505b64;
         border-radius: .5em;
+        border: solid .1em rgba(80, 91, 100, 0.48);
         cursor: pointer;
     }
 
@@ -29,10 +30,12 @@ label {
             color: #48232e;
         }
 
-        :checked + label.column {
-            background-color: #505b64;
-            color: #EBF3FA;
-        }
+:checked + label.column {
+    border: inset .1em #48232e;
+    background-color: #48232e;
+    color: #EBF3FA;
+    box-shadow: 0px 0px 10px;
+}
 
 [type=checkbox]  {
     display: none;
@@ -44,25 +47,9 @@ label {
     width: 80%;
 }
 
- 
-/*input {
-    position: absolute;
-    left: -9999px;
+nav ul li a:hover{
+    text-shadow: rgba(45, 46, 46, 0.47) 0 0 1em ;
 }
-input:checked label::after {
-    color: red;
-}*/
-/*.column {
-    float: left;
-    width: 50%;
-    padding: 20px;
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}*/
 
 div {
     width: 100%;
