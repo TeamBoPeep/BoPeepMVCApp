@@ -33,11 +33,11 @@ namespace BoPeepMVC.Models
         public string Location { get; set; }
 
         //link to external article/source/purchase page
-        [JsonPropertyName("externallink")]
+        [JsonPropertyName("externalLink")]
         public string ExternalLink { get; set; }
 
         //url for header/icon image
-        [JsonPropertyName("imageurl")]
+        [JsonPropertyName("imageUrl")]
         public string ImageURL { get; set; }
     }
 }
