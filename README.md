@@ -33,6 +33,8 @@ Microsoft Visual Studio Community 2019
 - MVC
 - Azure
 
+special thanks to canva (https://www.canva.com/photos/) for the images we used to seed our activities data
+
 ---
 
 ## **Change Log**  
