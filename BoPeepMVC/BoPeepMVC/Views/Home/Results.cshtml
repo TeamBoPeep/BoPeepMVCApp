@@ -13,7 +13,9 @@
         @foreach (var activity in Model)
         {
         <li>
-            <img src="https://via.placeholder.com/150" alt="@activity.Title" />
+            @if(activity.ImageURL != null){
+                <img src="@activity.ImageURL" alt="@activity.Title" />
+            }
             <h2>@activity.Title</h2>
             <p>@activity.Rating</p>
             <p>@activity.Location</p>

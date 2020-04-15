@@ -47,20 +47,31 @@ namespace BoPeepMVC.Controllers
 
         [HttpGet]
         [Route("/New", Name = "New")]
-        public IActionResult New()
+        public async Task<IActionResult> New()
         {
-            return View();
+            var tags = await _tag.GetTags();
+            return View(tags);
         }
 
         [HttpPost]
         [Route("/New", Name = "New")]
-        public IActionResult New(string title, string description, string location, string externallink, string imageurl)
+        public IActionResult New(string title, string description, string location, List<string> tagNames, string externallink, string imageurl)
         {
+            List<Tag> tags = new List<Tag>();
+            foreach(string name in tagNames)
+            {
+                tags.Add(new Tag
+                {
+                    Name = name
+                });
+            }
+
             Activity newActivity = new Activity()
             {
                 Title = title,
                 Description = description,
                 Location = location,
+                Tags = tags,
                 ExternalLink = externallink,
                 ImageURL = imageurl
             };

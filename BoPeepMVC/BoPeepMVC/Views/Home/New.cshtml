@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<BoPeepMVC.Models.Tag>
+
+@{
     Layout = "_Layout";
 }
 <!DOCTYPE html>
@@ -9,12 +11,17 @@
     <h2>Add a New Activity</h2>
 
     <form method="post">
-        <label for="title">Title</label><input type="text" name="title"/>
+        <label for="title">Title</label><input type="text" name="title" />
         <label for="description">Description</label><textarea name="description"></textarea>
         <input type="radio" name="location" value="indoor" /><label for="indoor">Indoor</label>
         <input type="radio" name="location" value="outdoor" /><label for="outdoor">Outdoor</label>
+        @foreach (var tag in Model)
+        {
+        <input type="checkbox" name="tagNames" id="tag\@tag.ID" value="@tag.Name" />
+        <label class="column" for="tag\@tag.ID">@tag.Name</label>
+        }
         <input type="radio" name="location" value="both" /><label for="both">Both</label>
-        <label for="externallink">Link to More Info</label><input type="url" name="externallink"/>
+        <label for="externallink">Link to More Info</label><input type="url" name="externallink" />
         <label for="imageurl">Header Image</label><input type="url" name="imageurl" />
         <button type="submit">Create</button>
     </form>
