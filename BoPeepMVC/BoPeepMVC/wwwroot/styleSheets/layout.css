@@ -164,5 +164,17 @@ label.column:hover {
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height:300px;
 }
+
+.flex-container>div {
+    width: 275px;
+    align-content:center;
+   
+}
+img{
+    width: 80%;
+    object-fit: cover;
+    height: 20rem;
+    margin:1.5rem;
+}
+
