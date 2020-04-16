@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #EBF3FA
+    background: radial-gradient(circle, rgba(208,248,251,1) 58%, rgba(251,198,221,1) 100%);
 }
 
 body>div:first-child {
@@ -44,6 +44,7 @@ footer {
 }
 
 h3 {
-    padding-top:30px;
+    padding-top: 30px;
+    font-family: 'Permanent Marker', cursive;
 }
 
