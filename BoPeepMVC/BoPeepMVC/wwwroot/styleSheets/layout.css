@@ -27,10 +27,11 @@
             font-size: 100px;
     }
 
-    header p {
+        header p {
             font-size: 65px;
             color: #870A30;
-    }
+            font-family: 'Permanent Marker', cursive;
+        }
     body {
         font-size: 30px;
     }
@@ -54,6 +55,7 @@
 .fontTooSmall {
     border: none;
     font-size: 30px;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 form {
@@ -63,7 +65,7 @@ form {
     justify-content: center;
     width: 50%;
     margin: 0 auto;
-    background: radial-gradient(circle, rgba(157,226,255,0.6494747557226015) 0%, rgba(160,179,255,0.5290265764508928) 41%, rgba(122,122,122,0.8231442235097164) 100%);
+    background: radial-gradient(circle, rgba(157,226,255,0.6494747557226015) 0%, rgba(101,105,121,0.25451677252932425) 82%, rgba(122,122,122,0.8231442235097164) 100%);
     border-radius: 20px;
     margin-top: 20px;
 }
@@ -74,20 +76,22 @@ label {
     font-size: 2.5vh;
     text-wrap: normal;
     vertical-align: middle;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 label input {
     margin: 0px;
 }
 
-label.column, button {
-    padding: .4em 0.9em;
-    color: #EBF3FA;
-    background-color: #505b64;
-    border-radius: .5em;
-    border: solid .1em rgba(80, 91, 100, 0.48);
-    cursor: pointer;
-}
+    label.column, button {
+        padding: .4em 0.9em;
+        color: #EBF3FA;
+        background-color: #505b64;
+        border-radius: .5em;
+        border: solid .1em rgba(80, 91, 100, 0.48);
+        cursor: pointer;
+        font-family: 'Shadows Into Light', cursive;
+    }
 
 label.column:hover {
     background-color: #EBF3FA;
@@ -138,6 +142,7 @@ textarea {
     border-radius: .5em;
     border: solid .1em rgba(80, 91, 100, 0.48);
     cursor: pointer;
+    font-family: 'Shadows Into Light', cursive;
 }
 label.column:hover {
     background-color: #EBF3FA;
