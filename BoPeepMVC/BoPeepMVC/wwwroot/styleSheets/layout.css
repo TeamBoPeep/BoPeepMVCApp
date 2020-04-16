@@ -1,3 +1,59 @@
+@media screen and (max-width: 420px) {
+    body {
+        font-size: 20px;
+    }
+    header h1 {
+        font-size: 70px;
+    }
+
+    header p {
+        font-size: 40px;
+        color: #870A30;
+    }
+
+    header nav li {
+        font-size: 25px;
+        display: inline;
+        padding: 0px 10px 10px;
+    }
+}
+@media screen and (min-width: 421px) {
+    header {
+        font-family: 'Permanent Marker', cursive;
+    }
+
+    header h1 {
+            font-size: 100px;
+    }
+
+    header p {
+            font-size: 65px;
+            color: #870A30;
+    }
+    body {
+        font-size: 30px;
+    }
+}
+.needsbackground {
+    padding: 50px;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgba(45, 46, 46, 0.3);
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.nocolor {
+    background-color: rgba(45, 46, 46, 0);
+    padding: 15px;
+    padding-bottom: 25px;
+}
+
+.fontTooSmall {
+    font-size: 30px;
+}
+
 form {
     padding: 50px;
     display: flex;
@@ -5,30 +61,34 @@ form {
     justify-content: center;
     width: 50%;
     margin: 0 auto;
-    background-color: rgba(45, 46, 46, 0.47);
+    background-color: rgba(45, 46, 46, 0.3);
     border-radius: 20px;
     margin-top: 20px;
 }
+
 label {
     margin: 1% 5%;
     width: 20vh;
     font-size: 2.5vh;
     text-wrap: normal;
 }
+label input {
+    margin: 0px;
+}
 
-    label.column, button {
-        padding: .4em 0.9em;
-        color: #EBF3FA;
-        background-color: #505b64;
-        border-radius: .5em;
-        border: solid .1em rgba(80, 91, 100, 0.48);
-        cursor: pointer;
-    }
+label.column, button {
+    padding: .4em 0.9em;
+    color: #EBF3FA;
+    background-color: #505b64;
+    border-radius: .5em;
+    border: solid .1em rgba(80, 91, 100, 0.48);
+    cursor: pointer;
+}
 
-        label.column:hover {
-            background-color: #EBF3FA;
-            color: #48232e;
-        }
+label.column:hover {
+    background-color: #EBF3FA;
+    color: #48232e;
+}
 
 :checked + label.column {
     border: inset .1em #48232e;
@@ -37,7 +97,7 @@ label {
     box-shadow: 0px 0px 10px;
 }
 
-[type=checkbox]  {
+[type=checkbox] {
     display: none;
     opacity: 0;
 }
@@ -47,12 +107,46 @@ label {
     width: 80%;
 }
 
-nav ul li a:hover{
-    text-shadow: rgba(45, 46, 46, 0.47) 0 0 1em ;
+nav ul li a:hover {
+    text-shadow: rgba(45, 46, 46, 0.47) 0 0 1em;
 }
 
 div {
     width: 100%;
-    text-align:center;
+    text-align: center;
+}
+input {
+    padding: .4em 0.9em;
+    margin: 10px;
+    color: #EBF3FA;
+    background-color: #505b64;
+    border-radius: .5em;
+    border: solid 3em rgba(80, 91, 100, 0.48);
+    cursor: pointer;
 }
 
+textarea {
+    margin: 10px;
+    padding: .4em 0.9em;
+    color: #EBF3FA;
+    background-color: #505b64;
+    border-radius: .5em;
+    border: solid .1em rgba(80, 91, 100, 0.48);
+    cursor: pointer;
+}
+label.column:hover {
+    background-color: #EBF3FA;
+    color: #48232e;
+}
+
+:checked + label.column {
+    border: inset .1em #48232e;
+    background-color: #48232e;
+    color: #EBF3FA;
+    box-shadow: 0px 0px 10px;
+}
+
+[type=checkbox] {
+    display: none;
+    opacity: 0;
+}

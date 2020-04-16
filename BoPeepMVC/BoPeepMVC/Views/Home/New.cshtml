@@ -12,17 +12,30 @@
 
     <form method="post">
         <label for="title">Title</label><input type="text" name="title" />
-        <label for="description">Description</label><textarea name="description"></textarea>
+        <br />
+        <label for="description">Description</label>
+        <br />
+        <textarea name="description"></textarea>
+        <br />
         <input type="radio" name="location" value="indoor" /><label for="indoor">Indoor</label>
+        <br />
         <input type="radio" name="location" value="outdoor" /><label for="outdoor">Outdoor</label>
+        <br />
+        <input type="radio" name="location" value="both" /><label for="both">Both</label>
+        <br />
         @foreach (var tag in Model)
         {
-        <input type="checkbox" name="tagNames" id="tag\@tag.ID" value="@tag.Name" />
-        <label class="column" for="tag\@tag.ID">@tag.Name</label>
+            <input type="checkbox" name="tagNames" id="tag\@tag.ID" value="@tag.Name" />
+            <label class="column" for="tag\@tag.ID">@tag.Name</label>
         }
-        <input type="radio" name="location" value="both" /><label for="both">Both</label>
-        <label for="externallink">Link to More Info</label><input type="url" name="externallink" />
-        <label for="imageurl">Header Image</label><input type="url" name="imageurl" />
+
+        <label for="externallink">Link to More Info</label>
+        <br />
+        <input type="url" name="externallink" />
+        <label for="imageurl">Header Image</label>
+        <br />
+        <input type="url" name="imageurl" />
+        <br />
         <button type="submit">Create</button>
     </form>
 </body>

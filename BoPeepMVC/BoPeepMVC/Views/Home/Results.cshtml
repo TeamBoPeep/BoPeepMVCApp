@@ -12,7 +12,7 @@
     <ul>
         @foreach (var activity in Model)
         {
-        <li>
+        <li class="needsbackground">
             @if (activity.ImageURL != null)
             {
                 <img src="@activity.ImageURL" alt="@activity.Title" />
@@ -22,10 +22,11 @@
             <p>@activity.Location</p>
             <p>@activity.Description</p>
             <a href="@activity.ExternalLink">CLICK HERE</a>
+            <br />
             @*Amanda did it*@
-            <a asp-action="Activity" asp-route-id="@activity.ID">Click-y Click</a>
+            <a asp-action="Activity" asp-route-id="@activity.ID">Click here for details</a>
            
-            <form method="post">
+            <form class="nocolor" method="post">
                 <input value="@activity.ID" name="id" hidden />
                 <button action="submit">Review this Activity</button>
             </form>
