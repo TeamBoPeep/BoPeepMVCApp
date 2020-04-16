@@ -9,14 +9,25 @@
     <title>Bored to Death - Activity</title>
 </head>
 <body>
-    <div>@Model.Title</div>
-    <div>@Model.Rating</div>
-    <div>@Model.ImageURL</div>
-    <div>@Model.Description</div>
-    <div>@Model.Location</div>
-    <div>@Model.ExternalLink</div>
-    <div>@Model.Tags</div>
-    <div>@Model.Reviews</div>
-    <div>@Model.Rate</div>
-
+    <h2>@Model.Title</h2>
+    <p>@Model.Rating</p>
+    <img src=@Model.ImageURL alt=@Model.Title />
+    <p>@Model.Description</p>
+    <p>@Model.Location</p>
+    <a href=@Model.ExternalLink>More Info <em>(External Link)</em></a>
+    <ul title="tags">
+        @foreach(var t in Model.Tags)
+        {
+        <li>@t.Name</li>
+        }
+    </ul>
+    <ul title="reviews">
+        @foreach(var r in Model.Reviews)
+        {
+        <li>
+            <p>@r.Description</p>
+            <p><em>by @r.Name</em></p>
+        </li>
+        }
+    </ul>
 </body>
