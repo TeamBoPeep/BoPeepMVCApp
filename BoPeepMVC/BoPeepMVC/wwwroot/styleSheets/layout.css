@@ -17,6 +17,7 @@
         padding: 0px 10px 10px;
     }
 }
+
 @media screen and (min-width: 421px) {
     header {
         font-family: 'Permanent Marker', cursive;
@@ -51,6 +52,7 @@
 }
 
 .fontTooSmall {
+    border: none;
     font-size: 30px;
 }
 
@@ -71,7 +73,9 @@ label {
     width: 20vh;
     font-size: 2.5vh;
     text-wrap: normal;
+    vertical-align: middle;
 }
+
 label input {
     margin: 0px;
 }
@@ -115,6 +119,7 @@ div {
     width: 100%;
     text-align: center;
 }
+
 input {
     padding: .4em 0.9em;
     margin: 10px;

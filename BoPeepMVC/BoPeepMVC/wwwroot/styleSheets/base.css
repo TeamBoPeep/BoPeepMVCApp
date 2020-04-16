@@ -2,12 +2,13 @@
     text-align: center;
     font-family: 'Roboto', sans-serif;
     color: #666664;
-
 }
+
 body {
     background-color: #EBF3FA
 }
- body div:first-child {
+
+body>div:first-child {
     background-position: center;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/71/089-skull.svg);
     background-attachment: fixed;
@@ -16,14 +17,15 @@ body {
     z-index: -1;
     position: absolute;
     background-repeat: no-repeat;
- }
+}
+
 header {
     font-family: 'Permanent Marker', cursive;
 }
 
- header h1 {
-     font-size: 100px;
- }
+header h1 {
+    font-size: 100px;
+}
 
 header p {
     font-size: 65px;
@@ -35,6 +37,7 @@ header nav li {
     display: inline;
     padding: 0px 50px 20px;
 }
+
 footer {
     font-family: 'Roboto', sans-serif;
     color: #909493;
