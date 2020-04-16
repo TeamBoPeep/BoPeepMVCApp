@@ -7,5 +7,6 @@ namespace BoPeepMVC.wwwroot.assets
 {
     public class holder
     {
+        //so what is this
     }
 }

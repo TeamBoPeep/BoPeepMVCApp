@@ -17,9 +17,11 @@ namespace BoPeepMVC.Models.Services
         public string baseURL = @"https://bobeepapi.azurewebsites.net/api";
 
         /// <summary>
-        /// Returns "Hello World" from deployed API
+        /// Get all activities from API filtered by keyword and tags
         /// </summary>
-        /// <returns>string of response</returns>
+        /// <param name="keyword">Keyword searched</param>
+        /// <param name="tags">Tags to filter by</param>
+        /// <returns>A list of all matching activities</returns>
         public async Task<IEnumerable<Activity>> GetActivitiesByKeyword(string keyword, string[] tags)
         {
             string route = "activities";
@@ -47,6 +49,11 @@ namespace BoPeepMVC.Models.Services
             return response;
         }
 
+        /// <summary>
+        /// Gets a single activity by its ID
+        /// </summary>
+        /// <param name="id">The ID of the activity</param>
+        /// <returns>The activity of the ID</returns>
         public async Task<Activity> GetActivitiesByID(int id)
         {
             string route = $"activities/{id}";
@@ -60,6 +67,11 @@ namespace BoPeepMVC.Models.Services
             return activity;
         }
 
+        /// <summary>
+        /// Sends an activity to the API to be created
+        /// </summary>
+        /// <param name="activity">The activity to be sent</param>
+        /// <returns>The status response from the API</returns>
         public async Task<HttpResponseMessage> CreateActivity(Activity activity)
         {
             string route = "activities";
@@ -72,6 +84,11 @@ namespace BoPeepMVC.Models.Services
             return response;
         }
 
+        /// <summary>
+        /// Sends an activity to be updated by the API
+        /// </summary>
+        /// <param name="activity">The activity to be sent</param>
+        /// <returns>The status response from the API</returns>
         public async Task<HttpResponseMessage> UpdateActivity(Activity activity)
         {
             string route = $"activities/{activity.ID}";

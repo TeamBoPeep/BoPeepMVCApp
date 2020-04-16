@@ -13,6 +13,10 @@ namespace BoPeepMVC.Models.Services
         private static readonly HttpClient client = new HttpClient();
         public string baseURL = @"https://bobeepapi.azurewebsites.net/api";
 
+        /// <summary>
+        /// Get all the tags from the API
+        /// </summary>
+        /// <returns>An enumerable of all tags</returns>
         public async Task<IEnumerable<Tag>> GetTags()
         {
             string route = "tags";
