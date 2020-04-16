@@ -16,6 +16,12 @@ namespace BoPeepMVC.Controllers
         private readonly ITagManager _tag;
         private readonly IReviewManager _review;
 
+        /// <summary>
+        /// Constructor for HomeController
+        /// </summary>
+        /// <param name="activity">Activity interface dependency</param>
+        /// <param name="tag">Tag interface dependency</param>
+        /// <param name="review">Review interface dependency</param>
         public HomeController(IActivityManager activity, ITagManager tag, IReviewManager review)
         {
             _activity = activity;
@@ -24,9 +30,9 @@ namespace BoPeepMVC.Controllers
         }
 
         /// <summary>
-        /// Our default view. sends the index view to GET a year range for our Results view.
+        /// Displays home page with list of existing tags
         /// </summary>
-        /// <returns>Opens the Home/Index View</returns>
+        /// <returns>The Home/Index View with current tags</returns>
         [HttpGet]
         [Route("/", Name = "Home")]
         public async Task<IActionResult> Index()
@@ -35,18 +41,34 @@ namespace BoPeepMVC.Controllers
             return View("Index", tags);
         }
 
+        /// <summary>
+        /// Redirects to a search based on keyword and selected tags
+        /// </summary>
+        /// <param name="keyword">Phrase to search</param>
+        /// <param name="tags">Tags to filter by</param>
+        /// <returns>Redirect to results route</returns>
         [HttpPost]
         public IActionResult Index(string keyword, string[] tags)
         {
             return RedirectToAction("Results", new { keyword, tags });
         }
 
+        /// <summary>
+        /// Performs a search based on keyword and selected tags
+        /// </summary>
+        /// <param name="keyword">Phrase to search</param>
+        /// <param name="tags">Tags to filter by</param>
+        /// <returns>Displays results view with results</returns>
         public async Task<IActionResult> Results(string keyword, string[] tags)
         {
             var response = await _activity.GetActivitiesByKeyword(keyword, tags);
             return View("Results", response);
         }
 
+        /// <summary>
+        /// Displays new activity page
+        /// </summary>
+        /// <returns>New activity view</returns>
         [HttpGet]
         [Route("/New", Name = "New")]
         public async Task<IActionResult> New()
@@ -55,6 +77,16 @@ namespace BoPeepMVC.Controllers
             return View(tags);
         }
 
+        /// <summary>
+        /// Creates a new activity from given values
+        /// </summary>
+        /// <param name="title">Title of the activity</param>
+        /// <param name="description">Description of the activity</param>
+        /// <param name="location">Whether the location is indoor or outdoor</param>
+        /// <param name="tagNames">Tags related to the activity</param>
+        /// <param name="externallink">Link to more info about the activity</param>
+        /// <param name="imageurl">URL for the activity's header image</param>
+        /// <returns>Results view with activity title searched</returns>
         [HttpPost]
         [Route("/New", Name = "New")]
         public async Task<IActionResult> New(string title, string description, string location, List<string> tagNames, string externallink, string imageurl)
@@ -83,6 +115,11 @@ namespace BoPeepMVC.Controllers
         }
 
 
+        /// <summary>
+        /// Displays the page for an individual activity
+        /// </summary>
+        /// <param name="id">ID of the activity to be displayed</param>
+        /// <returns>The view for the given activity</returns>
         [HttpGet]
         public async Task<IActionResult> Activity(int id)
         {
@@ -90,6 +127,11 @@ namespace BoPeepMVC.Controllers
             return View(activity);
         }
 
+        /// <summary>
+        /// Redirects to the review page for an activity
+        /// </summary>
+        /// <param name="id">ID of the activity to be reviewed</param>
+        /// <returns>Redirect to review view</returns>
         [HttpPost]
         public async Task<IActionResult> Results(int id)
         {
@@ -97,7 +139,11 @@ namespace BoPeepMVC.Controllers
             return RedirectToAction("Review", activity);
         }
 
-
+        /// <summary>
+        /// Displays review page for an individual activity
+        /// </summary>
+        /// <param name="activity">The activity to be reviewed</param>
+        /// <returns>Review view for activity</returns>
         [HttpGet]
         [Route("/review", Name ="Review")]
         public IActionResult Review(Activity activity)
@@ -105,6 +151,14 @@ namespace BoPeepMVC.Controllers
             return View(activity);
         }
 
+        /// <summary>
+        /// Creates a new review for an activity from given values
+        /// </summary>
+        /// <param name="activityId">ID of the activity</param>
+        /// <param name="username">Name of user writing review</param>
+        /// <param name="review">Text content of review</param>
+        /// <param name="rate">The user's upvote or downvote on the activity</param>
+        /// <returns>Activity view for reviewed activity</returns>
         [HttpPost]
         [Route("/review", Name = "Review")]
         public async Task<IActionResult> Review(int activityId, string username, string review, int rate)
@@ -122,6 +176,10 @@ namespace BoPeepMVC.Controllers
             return View("Activity", reviewedActivity);
         }
 
+        /// <summary>
+        /// Displays about us page
+        /// </summary>
+        /// <returns>About us view</returns>
         [HttpGet]
         [Route("/AboutUs", Name = "AboutUs")]
         public IActionResult AboutUs()

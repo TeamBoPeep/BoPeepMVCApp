@@ -15,6 +15,11 @@ namespace BoPeepMVC.Models.Services
         private static readonly HttpClient client = new HttpClient();
         public string baseURL = @"https://bobeepapi.azurewebsites.net/api";
 
+        /// <summary>
+        /// Sends a review to the API to be created
+        /// </summary>
+        /// <param name="review">The review to be sent</param>
+        /// <returns>The status response from the API</returns>
         public async Task<HttpResponseMessage> CreateReview(Review review)
         {
                 string route = "reviews";
@@ -27,6 +32,10 @@ namespace BoPeepMVC.Models.Services
                 return response;
         }
 
+        /// <summary>
+        /// Gets all reviews from the API
+        /// </summary>
+        /// <returns>An enumerable of all reviews</returns>
         public async Task<IEnumerable<Review>> GetReviews()
         {
             string route = "reviews";
