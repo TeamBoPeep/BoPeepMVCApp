@@ -45,6 +45,8 @@ p {
 footer {
     font-family: 'Roboto', sans-serif;
     color: #909493;
+    position: absolute;
+    bottom: 0;
 }
 
 h2 {
