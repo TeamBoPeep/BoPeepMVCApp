@@ -13,7 +13,8 @@
         @foreach (var activity in Model)
         {
         <li>
-            @if(activity.ImageURL != null){
+            @if (activity.ImageURL != null)
+            {
                 <img src="@activity.ImageURL" alt="@activity.Title" />
             }
             <h2>@activity.Title</h2>
@@ -21,8 +22,9 @@
             <p>@activity.Location</p>
             <p>@activity.Description</p>
             <a href="@activity.ExternalLink">CLICK HERE</a>
+            <a href="@($"https://bopeepmvc.azurewebsites.net/activity/{activity.ID}")">EXTRA CLICK HERE</a>
             <form method="post">
-                <input value="@activity.ID" name="id" hidden/>
+                <input value="@activity.ID" name="id" hidden />
                 <button action="submit">Review this Activity</button>
             </form>
         </li>
