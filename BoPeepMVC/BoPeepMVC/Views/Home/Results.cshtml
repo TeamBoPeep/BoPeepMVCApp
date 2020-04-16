@@ -24,8 +24,12 @@
             <a href="@activity.ExternalLink">CLICK HERE</a>
             <br />
             @*Amanda did it*@
-            <a asp-action="Activity" asp-route-id="@activity.ID">Click here for details</a>
-           
+            
+            @if (activity.ID != 0)
+            {
+                <a asp-action="Activity" asp-route-id="@activity.ID">Click here for details</a>
+            }
+
             <form class="nocolor" method="post">
                 <input value="@activity.ID" name="id" hidden />
                 <button action="submit">Review this Activity</button>
