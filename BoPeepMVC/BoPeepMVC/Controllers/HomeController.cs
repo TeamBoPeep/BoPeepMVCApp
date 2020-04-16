@@ -107,13 +107,14 @@ namespace BoPeepMVC.Controllers
 
         [HttpPost]
         [Route("/review", Name = "Review")]
-        public async Task<IActionResult> Review(int activityId, string username, string review)
+        public async Task<IActionResult> Review(int activityId, string username, string review, int rate)
         {
             Review newReview = new Review
             {
                 ActivityID = activityId,
                 Name = username,
-                Description = review
+                Description = review,
+                Rate = rate
             };
             await _review.CreateReview(newReview);
             var reviewedActivity = await _activity.GetActivitiesByID(activityId);
