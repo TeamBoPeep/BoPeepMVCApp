@@ -29,22 +29,20 @@ namespace BoPeepMVC.Models.Services
 
             var streamTask = await client.GetStreamAsync($"{baseURL}/{route}");
             var allactivities = await System.Text.Json.JsonSerializer.DeserializeAsync<List<Activity>>(streamTask);
-            // IDEA FOR IMPLEMENTING TAGS
 
-            /* List<Activity> taggedActivities = new List<Activity>()
-             * foreach(var activity in allactivities) 
-             * {
-             *      if(activity.Tags.Any(x => tags.Any(t => t == x)))
-             *          taggedActivities.push(activity);
-             * }
-             * 
-             * var response = taggedActivities.Where(a => etc...
-             * */
-
+            // Filters by tags
+            List<Activity> taggedActivities = new List<Activity>();
+            foreach (var activity in allactivities)
+            {
+                Activity a = await GetActivitiesByID(activity.ID);
+                if (a.Tags.Any(x => tags.Any(t => t == x.Name)))
+                    taggedActivities.Add(a);
+            }
+          
             // Filters by keyword in the description or the title, case-insensitive, and then sorts by highest to lowest rating
-            var response = allactivities.Where(a => a.Title.ToLower()
+            var response = taggedActivities.Where(a => a.Title.ToLower()
                 .Contains(keyword.ToLower()) || a.Description.ToLower().Contains(keyword.ToLower()))
-                .OrderByDescending(a=> a.Rating);
+                .OrderByDescending(a => a.Rating);
 
             return response;
         }

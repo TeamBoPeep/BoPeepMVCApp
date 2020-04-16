@@ -20,11 +20,9 @@ namespace BoPeepMVC.Models
 
         [JsonPropertyName("description")]
         public string Description { get; set; }
-
-        //user's existing rating
-        //will only be necessary once users are implemented in some way
+/*
         [JsonPropertyName("rate")]
-        public int Rate { get; set; }
+        public int Rate { get; set; }*/
 
         //aggregate rating
         [JsonPropertyName("rating")]
