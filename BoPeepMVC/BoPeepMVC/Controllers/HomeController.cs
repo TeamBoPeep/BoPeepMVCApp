@@ -84,10 +84,9 @@ namespace BoPeepMVC.Controllers
 
 
         [HttpGet]
-        [Route("/activity/{id}", Name ="activity")]
         public async Task<IActionResult> Activity(int id)
         {
-            var activity = await _activity.GetActivitiesByID(Convert.ToInt32(id));
+            var activity = await _activity.GetActivitiesByID(id);
             return View(activity);
         }
 

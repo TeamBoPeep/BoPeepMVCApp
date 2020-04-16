@@ -22,7 +22,9 @@
             <p>@activity.Location</p>
             <p>@activity.Description</p>
             <a href="@activity.ExternalLink">CLICK HERE</a>
-            <a href="@($"https://bopeepmvc.azurewebsites.net/activity/{activity.ID}")">EXTRA CLICK HERE</a>
+            @*Amanda did it*@
+            <a asp-action="Activity" asp-route-id="@activity.ID">Click-y Click</a>
+           
             <form method="post">
                 <input value="@activity.ID" name="id" hidden />
                 <button action="submit">Review this Activity</button>
