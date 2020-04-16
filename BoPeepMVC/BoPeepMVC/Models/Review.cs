@@ -16,5 +16,8 @@ namespace BoPeepMVC.Models
 
         [JsonPropertyName("description")]
         public string Description { get; set; }
+
+        [JsonPropertyName("rate")]
+        public int Rate { get; set; }
     }
 }
