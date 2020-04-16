@@ -10,7 +10,7 @@ namespace BoPeepMVC.Models
     {
         [JsonPropertyName("id")]
         public int ID { get; set; }
-        [JsonPropertyName("names")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
         [JsonPropertyName("activitiesdtos")]
         public List<Activity> Activities { get; set; }

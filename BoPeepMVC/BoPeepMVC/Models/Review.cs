@@ -8,8 +8,8 @@ namespace BoPeepMVC.Models
 {
     public class Review
     {
-        [JsonPropertyName("id")]
-        public int ID { get; set; }
+        [JsonPropertyName("activityId")]
+        public int ActivityID { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }

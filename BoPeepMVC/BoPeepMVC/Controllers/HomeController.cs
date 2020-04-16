@@ -14,11 +14,13 @@ namespace BoPeepMVC.Controllers
     {
         private readonly IActivityManager _activity;
         private readonly ITagManager _tag;
+        private readonly IReviewManager _review;
 
-        public HomeController(IActivityManager activity, ITagManager tag)
+        public HomeController(IActivityManager activity, ITagManager tag, IReviewManager review)
         {
             _activity = activity;
             _tag = tag;
+            _review = review;
         }
 
         /// <summary>
@@ -101,13 +103,16 @@ namespace BoPeepMVC.Controllers
         {
             Review newReview = new Review
             {
+                ActivityID = id,
                 Name = username,
                 Description = review
             };
+            await _review.CreateReview(newReview);
             var reviewedActivity = await _activity.GetActivitiesByID(id);
-            reviewedActivity.Reviews.Add(newReview);
-
-            await _activity.UpdateActivity(reviewedActivity);
+            /*
+                        List<Review> reviews = _review.GetReviews().Result.ToList();
+                        reviewedActivity.Reviews.Add(reviews.Last());
+                        await _activity.UpdateActivity(reviewedActivity);*/
 
             return View("Results", new List<Activity> { reviewedActivity });
         }
