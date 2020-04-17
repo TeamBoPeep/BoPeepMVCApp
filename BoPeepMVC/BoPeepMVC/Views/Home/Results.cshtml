@@ -12,39 +12,47 @@
     <ul>
         @foreach (var activity in Model)
         {
-            <li class="needsbackground">
+        <li class="needsbackground">
+            <form method="post">
                 @if (activity.ImageURL != null)
                 {
                     <img src="@activity.ImageURL" alt="@activity.Title" />
                 }
+                <br />
                 <h2>@activity.Title</h2>
+                <br />
                 <p>@activity.Rating</p>
+                <br />
                 @if (activity.Location != "both")
                 {
                     <p>@activity.Location</p>
                 }
                 @if (activity.Location == "both")
-                { 
-                <p>
-                    both indoor and outdoor
+                {
+                    <p>
+                        both indoor and outdoor
                     </p>}
+                <br />
                 <p>@activity.Description</p>
+                <br />
                 @if (activity.ExternalLink != null)
                 {
                     <a href="@activity.ExternalLink">Click here to view a site about this activity</a>
-                    <br />
+
                 }
+                <br />
                 @*Amanda did it*@
 
                 @if (activity.ID != 0)
                 {
                     <a asp-action="Activity" asp-route-id="@activity.ID">Click here for details on this activity</a>
-                    <form class="nocolor" method="post">
-                        <input value="@activity.ID" name="id" hidden />
-                        <button action="submit">Review this Activity</button>
-                    </form>
+
+                    <input value="@activity.ID" name="id" hidden />
+                    <button action="submit">Review this Activity</button>
+
                 }
-            </li>
+            </form>
+        </li>
         }
     </ul>
     <footer>

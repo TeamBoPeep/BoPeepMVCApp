@@ -23,9 +23,12 @@
         font-family: 'Permanent Marker', cursive;
     }
 
-    header h1 {
+        header h1 {
             font-size: 100px;
-    }
+            background: -webkit-linear-gradient(#F7A4FF,#A4D0FF,#000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         header p {
             font-size: 65px;
