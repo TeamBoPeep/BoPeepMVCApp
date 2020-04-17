@@ -206,8 +206,9 @@ namespace BoPeepMVC.Controllers
             };
 
             await _review.UpdateReview(review);
+            var reviewedActivity = await _activity.GetActivitiesByID(activityID);
 
-            return RedirectToAction("");
+            return RedirectToAction("Activity", reviewedActivity);
         }
 
         /// <summary>
