@@ -36,13 +36,27 @@
                 <p><em>by @r.Name</em></p>
             </li>
             <form asp-action="DeletePost">
-                <input type="hidden" value="@r.Id" name="id"/>
+                <input type="hidden" value="@r.Id" name="id" />
+                <input type="hidden" value="@Model.ID" name="activityID" />
                 <button type="submit">Delete</button>
             </form>
+            <div>
+                <button class="update-show">Update</button>
+                <form asp-action="UpdatePost" class="update">
+                    <input type="hidden" value="@Model.ID" name="activityID" />
+                    <input type="hidden" value="@r.Id" name="ID" />
+                    <input type="hidden" value="@r.Rate" name="Rate" />
+                    <input type="text" placeholder="@r.Name" name="Name" />
+                    <textarea type="text" placeholder="@r.Description" name="Decription"></textarea>
+                    <button>Submit</button>
+                </form>
+            </div>
 
         }
     </ul>
     <footer>
         <p><em>BoPeep Development &copy; 2020</em></p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="~/js/app.js"></script>
 </body>

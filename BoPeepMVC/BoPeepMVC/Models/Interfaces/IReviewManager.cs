@@ -13,5 +13,8 @@ namespace BoPeepMVC.Models.Interfaces
         public Task<HttpResponseMessage> CreateReview(Review review);
 
         public Task DeleteReviews(int id);
+
+        public Task<HttpResponseMessage> UpdateReview(Review review);
+
     }
 }
