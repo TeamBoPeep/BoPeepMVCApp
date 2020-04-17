@@ -176,10 +176,36 @@ namespace BoPeepMVC.Controllers
             return View("Activity", reviewedActivity);
         }
 
+        /// <summary>
+        /// Delete method for the backed
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <returns></returns>
         [HttpPost, ActionName("DeletePost")]
         public async Task<IActionResult> ConfirmDelete(int id, int activityID)
         {
             await _review.DeleteReviews(id);
+
+            return RedirectToAction($"");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost, ActionName("UpdatePost")]
+        public async Task<IActionResult> UpdateReview(string Name, string Decription, int ID, int Rate, int activityID)
+        {
+            Review review = new Review()
+            {
+                ActivityID = activityID,
+                Rate = Rate,
+                Id = ID,
+                Name = Name,
+                Description = Decription
+            };
+
+            await _review.UpdateReview(review);
 
             return RedirectToAction("");
         }

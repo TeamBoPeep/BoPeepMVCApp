@@ -58,5 +58,17 @@ namespace BoPeepMVC.Models.Services
             var streamTask = await client.DeleteAsync($"{baseURL}/{route}");
 
         }
+
+        public async Task<HttpResponseMessage> UpdateReview(Review review)
+        {
+            string route = $"reviews/{review.Id}";
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var serializedActivity = JsonConvert.SerializeObject(review);
+            var response = await client.PutAsync($"{baseURL}/{route}", new StringContent(serializedActivity, Encoding.UTF8, "application/json"));
+            return response;
+        }
     }
 }
