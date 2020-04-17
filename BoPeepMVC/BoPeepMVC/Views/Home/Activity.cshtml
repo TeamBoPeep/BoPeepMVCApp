@@ -11,23 +11,30 @@
 <body>
     <h2>@Model.Title</h2>
     <p>@Model.Rating</p>
-    <img src=@Model.ImageURL alt=@Model.Title />
+    @if (activity.ImageURL != null)
+    {
+        <img src="@activity.ImageURL" alt="@activity.Title" />
+    }
     <p>@Model.Description</p>
     <p>@Model.Location</p>
-    <a href=@Model.ExternalLink>More Info <em>(External Link)</em></a>
+    @if (activity.ExternalLink != null)
+    {
+        <a href="@activity.ExternalLink">CLICK HERE</a>
+        <br />
+    }
     <ul title="tags">
-        @foreach(var t in Model.Tags)
+        @foreach (var t in Model.Tags)
         {
-        <li>@t.Name</li>
+            <li>@t.Name</li>
         }
     </ul>
     <ul title="reviews">
-        @foreach(var r in Model.Reviews)
+        @foreach (var r in Model.Reviews)
         {
-        <li>
-            <p>@r.Description</p>
-            <p><em>by @r.Name</em></p>
-        </li>
+            <li>
+                <p>@r.Description</p>
+                <p><em>by @r.Name</em></p>
+            </li>
         }
     </ul>
 </body>

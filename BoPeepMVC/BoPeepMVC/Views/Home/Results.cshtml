@@ -21,20 +21,22 @@
             <p>@activity.Rating</p>
             <p>@activity.Location</p>
             <p>@activity.Description</p>
-            <a href="@activity.ExternalLink">CLICK HERE</a>
-            <br />
+            @if (activity.ExternalLink != null)
+            {
+                <a href="@activity.ExternalLink">CLICK HERE</a>
+                <br />
+            }
             @*Amanda did it*@
-            
+
             @if (activity.ID != 0)
             {
                 <a asp-action="Activity" asp-route-id="@activity.ID">Click here for details</a>
+                <form class="nocolor" method="post">
+                    <input value="@activity.ID" name="id" hidden />
+                    <button action="submit">Review this Activity</button>
+                </form>
             }
-
-            <form class="nocolor" method="post">
-                <input value="@activity.ID" name="id" hidden />
-                <button action="submit">Review this Activity</button>
-            </form>
-        </li>
+            </li>
         }
     </ul>
 </body>
