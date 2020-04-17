@@ -19,11 +19,19 @@
                 }
                 <h2>@activity.Title</h2>
                 <p>@activity.Rating</p>
-                <p>@activity.Location</p>
+                @if (activity.Location != "both")
+                {
+                    <p>@activity.Location</p>
+                }
+                @if (activity.Location == "both")
+                { 
+                <p>
+                    both indoor and outdoor
+                    </p>}
                 <p>@activity.Description</p>
                 @if (activity.ExternalLink != null)
                 {
-                    <a href="@activity.ExternalLink">Click here to view a site abo9ut this activity</a>
+                    <a href="@activity.ExternalLink">Click here to view a site about this activity</a>
                     <br />
                 }
                 @*Amanda did it*@
