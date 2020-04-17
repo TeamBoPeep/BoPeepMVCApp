@@ -1,0 +1,62 @@
+﻿@model BoPeepMVC.Models.Activity
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<head>
+    <title>Bored to Death - Activity</title>
+</head>
+<body>
+    <h2>@Model.Title</h2>
+    <p>@Model.Rating</p>
+    @if (Model.ImageURL != null)
+    {
+        <img src="@Model.ImageURL" alt="@Model.Title" />
+    }
+    <p>@Model.Description</p>
+    <p>@Model.Location</p>
+    @if (Model.ExternalLink != null)
+    {
+        <a href="@Model.ExternalLink">CLICK HERE</a>
+        <br />
+    }
+    <ul title="tags">
+        @foreach (var t in Model.Tags)
+        {
+            <li>@t.Name</li>
+        }
+    </ul>
+    <ul title="reviews">
+        @foreach (var r in Model.Reviews)
+        {
+            <li>
+                <p>@r.Description</p>
+                <p><em>by @r.Name</em></p>
+            </li>
+            <form asp-action="DeletePost">
+                <input type="hidden" value="@r.Id" name="id" />
+                <input type="hidden" value="@Model.ID" name="activityID" />
+                <button type="submit">Delete</button>
+            </form>
+            <div>
+                <button class="update-show">Update</button>
+                <form asp-action="UpdatePost" class="update">
+                    <input type="hidden" value="@Model.ID" name="activityID" />
+                    <input type="hidden" value="@r.Id" name="ID" />
+                    <input type="hidden" value="@r.Rate" name="Rate" />
+                    <input type="text" placeholder="Name:@r.Name" name="Name" />
+                    <textarea type="text" placeholder="Description:@r.Description" name="Decription"></textarea>
+                    <button>Submit</button>
+                </form>
+            </div>
+
+        }
+    </ul>
+    <footer>
+        <p><em>BoPeep Development &copy; 2020</em></p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="~/js/app.js"></script>
+</body>

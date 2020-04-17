@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BoPeepMVC.Models.Tag>
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<head>
+    <title>Bored To Death: The Boredom Killer</title>
+</head>
+<body>
+    <form class="row" method="post">
+
+        @foreach (var tag in Model)
+        {
+            <input type="checkbox" name="tags" id="tag\@tag.ID" value="@tag.Name" />
+            <label class="column" for="tag\@tag.ID">@tag.Name</label>
+        }
+
+        <br />
+        <div>
+            <label name="Keyword">
+                <input class="fontTooSmall" type="text" placeholder="Search by Keyword(s)" name="Keyword" required />
+            </label>
+            <button class="fontTooSmall" type="submit">Search</button>
+        </div>
+    </form>
+    <footer>
+        <p><em>BoPeep Development &copy; 2020</em></p>
+    </footer>
+
+</body>

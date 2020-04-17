@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BoPeepMVC.Models.Activity>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<head>
+    <title>Bored to Death - Search Results(@Model.Count() Found)</title>
+</head>
+<body>
+    <ul>
+        @foreach (var activity in Model)
+        {
+        <li class="needsbackground">
+            <form method="post">
+                @if (activity.ImageURL != null)
+                {
+                    <img src="@activity.ImageURL" alt="@activity.Title" />
+                }
+                <br />
+                <h2>@activity.Title</h2>
+                <br />
+                <p>@activity.Rating</p>
+                <br />
+                @if (activity.Location != "both")
+                {
+                    <p>@activity.Location</p>
+                }
+                @if (activity.Location == "both")
+                {
+                    <p>
+                        both indoor and outdoor
+                    </p>}
+                <br />
+                <p>@activity.Description</p>
+                <br />
+                @if (activity.ExternalLink != null)
+                {
+                    <a href="@activity.ExternalLink">Click here to view a site about this activity</a>
+
+                }
+                <br />
+                @*Amanda did it*@
+
+                @if (activity.ID != 0)
+                {
+                    <a asp-action="Activity" asp-route-id="@activity.ID">Click here for details on this activity</a>
+
+                    <input value="@activity.ID" name="id" hidden />
+                    <button action="submit">Review this Activity</button>
+
+                }
+            </form>
+        </li>
+        }
+    </ul>
+    <footer>
+        <p><em>BoPeep Development &copy; 2020</em></p>
+    </footer>
+</body>

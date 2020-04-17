@@ -1,0 +1,58 @@
+﻿* {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #666664;
+}
+
+body {
+    background: radial-gradient(circle, rgba(208,248,251,1) 58%, rgba(251,198,221,1) 100%);
+}
+
+body>div:first-child {
+    background-position: center;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/71/089-skull.svg);
+    background-attachment: fixed;
+    height: 100vh;
+    opacity: 0.2;
+    z-index: -1;
+    position: fixed;
+    background-repeat: no-repeat;
+}
+
+header {
+    font-family: 'Permanent Marker', cursive;
+}
+
+header h1 {
+    font-size: 100px;
+}
+
+header p {
+    font-size: 65px;
+    color: #870A30;
+}
+
+header nav li {
+    font-size: 25px;
+    display: inline;
+    padding: 0px 50px 20px;
+}
+
+p {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+footer {
+    font-family: 'Roboto', sans-serif;
+    color: #909493;
+    bottom: 0;
+}
+
+h2 {
+    font-family: 'Permanent Marker', cursive;
+}
+h3 {
+    padding-top: 45px;
+    font-family: 'Permanent Marker', cursive;
+}
+
