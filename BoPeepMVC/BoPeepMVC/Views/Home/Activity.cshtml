@@ -11,15 +11,15 @@
 <body>
     <h2>@Model.Title</h2>
     <p>@Model.Rating</p>
-    @if (activity.ImageURL != null)
+    @if (Model.ImageURL != null)
     {
-        <img src="@activity.ImageURL" alt="@activity.Title" />
+        <img src="@Model.ImageURL" alt="@Model.Title" />
     }
     <p>@Model.Description</p>
     <p>@Model.Location</p>
-    @if (activity.ExternalLink != null)
+    @if (Model.ExternalLink != null)
     {
-        <a href="@activity.ExternalLink">CLICK HERE</a>
+        <a href="@Model.ExternalLink">CLICK HERE</a>
         <br />
     }
     <ul title="tags">
@@ -37,4 +37,7 @@
             </li>
         }
     </ul>
+    <footer>
+        <p><em>BoPeep Development &copy; 2020</em></p>
+    </footer>
 </body>

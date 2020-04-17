@@ -12,31 +12,34 @@
     <ul>
         @foreach (var activity in Model)
         {
-        <li class="needsbackground">
-            @if (activity.ImageURL != null)
-            {
-                <img src="@activity.ImageURL" alt="@activity.Title" />
-            }
-            <h2>@activity.Title</h2>
-            <p>@activity.Rating</p>
-            <p>@activity.Location</p>
-            <p>@activity.Description</p>
-            @if (activity.ExternalLink != null)
-            {
-                <a href="@activity.ExternalLink">CLICK HERE</a>
-                <br />
-            }
-            @*Amanda did it*@
+            <li class="needsbackground">
+                @if (activity.ImageURL != null)
+                {
+                    <img src="@activity.ImageURL" alt="@activity.Title" />
+                }
+                <h2>@activity.Title</h2>
+                <p>@activity.Rating</p>
+                <p>@activity.Location</p>
+                <p>@activity.Description</p>
+                @if (activity.ExternalLink != null)
+                {
+                    <a href="@activity.ExternalLink">Click here to view a site abo9ut this activity</a>
+                    <br />
+                }
+                @*Amanda did it*@
 
-            @if (activity.ID != 0)
-            {
-                <a asp-action="Activity" asp-route-id="@activity.ID">Click here for details</a>
-                <form class="nocolor" method="post">
-                    <input value="@activity.ID" name="id" hidden />
-                    <button action="submit">Review this Activity</button>
-                </form>
-            }
+                @if (activity.ID != 0)
+                {
+                    <a asp-action="Activity" asp-route-id="@activity.ID">Click here for details on this activity</a>
+                    <form class="nocolor" method="post">
+                        <input value="@activity.ID" name="id" hidden />
+                        <button action="submit">Review this Activity</button>
+                    </form>
+                }
             </li>
         }
     </ul>
+    <footer>
+        <p><em>BoPeep Development &copy; 2020</em></p>
+    </footer>
 </body>
