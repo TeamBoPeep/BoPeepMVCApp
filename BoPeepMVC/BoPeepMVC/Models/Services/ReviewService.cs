@@ -48,5 +48,15 @@ namespace BoPeepMVC.Models.Services
 
             return allReviews;
         }
+
+        public async Task DeleteReviews(int id)
+        {
+            string route = $"reviews/{id}";
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var streamTask = await client.DeleteAsync($"{baseURL}/{route}");
+
+        }
     }
 }

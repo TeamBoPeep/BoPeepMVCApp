@@ -176,6 +176,14 @@ namespace BoPeepMVC.Controllers
             return View("Activity", reviewedActivity);
         }
 
+        [HttpPost, ActionName("DeletePost")]
+        public async Task<IActionResult> ConfirmDelete(int id, int activityID)
+        {
+            await _review.DeleteReviews(id);
+
+            return RedirectToAction("");
+        }
+
         /// <summary>
         /// Displays about us page
         /// </summary>
