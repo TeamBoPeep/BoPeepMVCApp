@@ -35,6 +35,11 @@
                 <p>@r.Description</p>
                 <p><em>by @r.Name</em></p>
             </li>
+            <form asp-action="DeletePost">
+                <input type="hidden" value="@r.Id" name="id"/>
+                <button type="submit">Delete</button>
+            </form>
+
         }
     </ul>
     <footer>
